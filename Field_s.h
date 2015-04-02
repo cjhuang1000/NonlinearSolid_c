@@ -5,9 +5,11 @@ typedef struct
 {
 
 	short int *G2g,			*g2G;
+	short int *G2g_before,	*g2G_before;
 	short int *C2c_fsi,		*c2C_fsi;
 	short int *C2c_neumann,	*c2C_neumann;
 	short int *C2c_dirichlet,*c2C_dirichlet;
+    short int *keep;
 
 } Index_xixy;
 
@@ -28,10 +30,11 @@ typedef struct {
 
   /* Number of involved cells/variables*/
   int cell_N_interior,cell_N_FSI,cell_N_boundary,cell_N_Neumann,cell_N_Dirichlet;
-  int xix_N,xiy_N;
-  int xix_Ncell_FSI,xiy_Ncell_FSI;
-  int xix_Ncell_Neumann,xiy_Ncell_Neumann;
-  int xix_Ncell_Dirichlet,xiy_Ncell_Dirichlet;
+  int xix_N         ,xiy_N;
+  int xix_N_before  ,xiy_N_before;
+  int xix_Ncell_FSI ,xiy_Ncell_FSI;
+  int xix_Ncell_Neumann     ,xiy_Ncell_Neumann;
+  int xix_Ncell_Dirichlet   ,xiy_Ncell_Dirichlet;
 
 } Index_S;
 
@@ -40,9 +43,11 @@ typedef struct {
 typedef struct {
 
 	/* displacement,velocity */
-	double *xi_x,  *xi_y;
-	double *dxi_x, *dxi_y;
-    double *ddxi_x, *ddxi_y;
+	double *xi_x,       *xi_y;
+	double *dxi_x,      *dxi_y;
+    double *ddxi_x,     *ddxi_y;
+    double *inc_dxi_x,  *inc_dxi_y;
+    double *tau_x,      *tau_y;
 
 } Field_S;
 

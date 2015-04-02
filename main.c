@@ -14,13 +14,13 @@
 int main(){
 
     int     i;
-
+    double  t;
 	Grid_S	        grid;
 	Solid	        solid;
 	TimeMarching	timem;
 	Index_S	        ind;
 	Constraint_S    const_s;
-    Field_S         field_s;
+    Field_S         field_s,field_s_old;
     Matrices_S      mat_s;
 
     /* ------- parameter setting-------------- */
@@ -56,6 +56,9 @@ int main(){
     field_s.dxi_y  = dvector(0,grid.N-1);
     field_s.ddxi_x = dvector(0,grid.N-1);
     field_s.ddxi_y = dvector(0,grid.N-1);
+    field_s.inc_dxi_x = dvector(0,grid.N-1);
+    field_s.inc_dxi_y = dvector(0,grid.N-1);
+    field_s.
 
     set_initial(&grid, &solid, &field_s);
 
